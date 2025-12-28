@@ -106,35 +106,27 @@
     <input type="text" id="price" placeholder="Price (e.g. €450/month)" required>
     <textarea id="description" placeholder="Property Description" required></textarea>
 
-    <button type="button" onclick="addProperty()">Add Property</button>
+    <button type="submit">Add Property</button>
   </form>
 
   <div id="propertyList"></div>
 </div>
 
 <script>
- let properties = JSON.parse(localStorage.getItem("properties")) || [];
+  let properties = [];
 
-function addProperty() {
-  const title = document.getElementById("title").value;
-  const price = document.getElementById("price").value;
-  const location = document.getElementById("location").value;
-  const image = document.getElementById("image").value;
+  function addProperty(event) {
+    event.preventDefault();
 
-  const newProperty = {
-    id: Date.now(),
-    title,
-    price,
-    location,
-    image
-  };
+    const title = document.getElementById("title").value;
+    const price = document.getElementById("price").value;
+    const description = document.getElementById("description").value;
 
-  properties.push(newProperty);
-  localStorage.setItem("properties", JSON.stringify(properties));
+    properties.push({ title, price, description });
+    renderProperties();
 
-  alert("Property added successfully!");
-}
- 
+    event.target.reset();
+  }
 
   function renderProperties() {
     const list = document.getElementById("propertyList");
