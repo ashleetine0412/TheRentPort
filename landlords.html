@@ -113,7 +113,7 @@
 </div>
 
 <script>
-  let properties = [];
+  let properties = let properties = JSON.parse(localStorage.getItem("properties")) || [];
 
   function addProperty(event) {
     event.preventDefault();
@@ -123,6 +123,8 @@
     const description = document.getElementById("description").value;
 
     properties.push({ title, price, description });
+localStorage.setItem("properties", JSON.stringify(properties));
+
     renderProperties();
 
     event.target.reset();
@@ -147,11 +149,14 @@
     });
   }
 
-  function deleteProperty(index) {
-    properties.splice(index, 1);
-    renderProperties();
-  }
+function deleteProperty(index) {
+  properties.splice(index, 1);
+  localStorage.setItem("properties", JSON.stringify(properties));
+  renderProperties();
+}
+  
 </script>
+renderProperties();  
 
 </body>
 </html>
