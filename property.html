@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RentPort | Property Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121213;
+      color: #ffffff;
+    }
+
+    header {
+      padding: 20px 40px;
+      background: #1f2324;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #79c587;
+      margin: 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .price {
+      color: #79c587;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .images div {
+      background: #1f2324;
+      height: 180px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .contact {
+      margin-top: 40px;
+      padding: 20px;
+      background: #1f2324;
+      border-radius: 12px;
+    }
+
+    .contact button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      background: #79c587;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #052109;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 20px;
+      text-align: center;
+      background: #1f2324;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>RentPort</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>1 Bedroom Apartment – Pavia</h2>
+  <p class="price">€450 / month</p>
+  <p>
+    Spacious and fully furnished apartment located near the University of Pavia.
+    Includes Wi-Fi, study desk, and modern kitchen.
+  </p>
+
+  <div class="images">
+    <div>Image 1</div>
+    <div>Image 2</div>
+    <div>Image 3</div>
+  </div>
+
+  <div class="contact">
+    <h3>Contact Landlord</h3>
+    <p>Interested in this property? Reach out directly.</p>
+    <button>Send Message</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 RentPort • Built in Zimbabwe 🇿🇼
+</footer>
+
+</body>
+</html>
