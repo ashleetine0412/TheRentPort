@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RentPort | Landlord Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121213;
+      color: #ffffff;
+    }
+
+    header {
+      background: #1f2324;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #79c587;
+      margin: 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      background: #1f2324;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    button {
+      background: #79c587;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #052109;
+    }
+
+    .property {
+      background: #1f2324;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .property h3 {
+      margin-top: 0;
+    }
+
+    .actions button {
+      margin-right: 10px;
+      background: #374151;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>RentPort</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Landlord Dashboard</h2>
+
+  <form onsubmit="addProperty(event)">
+    <input type="text" id="title" placeholder="Property Title" required>
+    <input type="text" id="price" placeholder="Price (e.g. €450/month)" required>
+    <textarea id="description" placeholder="Property Description" required></textarea>
+
+    <button type="submit">Add Property</button>
+  </form>
+
+  <div id="propertyList"></div>
+</div>
+
+<script>
+  let properties = [];
+
+  function addProperty(event) {
+    event.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const price = document.getElementById("price").value;
+    const description = document.getElementById("description").value;
+
+    properties.push({ title, price, description });
+    renderProperties();
+
+    event.target.reset();
+  }
+
+  function renderProperties() {
+    const list = document.getElementById("propertyList");
+    list.innerHTML = "";
+
+    properties.forEach((p, index) => {
+      list.innerHTML += `
+        <div class="property">
+          <h3>${p.title}</h3>
+          <p><strong>${p.price}</strong></p>
+          <p>${p.description}</p>
+
+          <div class="actions">
+            <button onclick="deleteProperty(${index})">Delete</button>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function deleteProperty(index) {
+    properties.splice(index, 1);
+    renderProperties();
+  }
+</script>
+
+</body>
+</html>
+
