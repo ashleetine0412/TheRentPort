@@ -108,6 +108,35 @@
     Spacious and fully furnished apartment located near the University of Pavia.
     Includes Wi-Fi, study desk, and modern kitchen.
   </p>
+  <hr style="margin:40px 0;">
+
+<h3>Contact Landlord</h3>
+
+<form onsubmit="sendMessage(event)" style="max-width:400px;">
+  <label>Your Name</label><br>
+  <input type="text" required style="width:100%;padding:10px;margin-bottom:12px;"><br>
+
+  <label>Email or Phone</label><br>
+  <input type="text" required style="width:100%;padding:10px;margin-bottom:12px;"><br>
+
+  <label>Message</label><br>
+  <textarea required style="width:100%;padding:10px;height:100px;margin-bottom:12px;"></textarea><br>
+
+  <button type="submit" style="
+    padding:12px 20px;
+    background:#79c587;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+    Send Message
+  </button>
+
+  <p id="successMsg" style="color:green;display:none;margin-top:12px;">
+    Message sent successfully!
+  </p>
+</form>
 
   <div class="images">
     <div>Image 1</div>
@@ -125,6 +154,12 @@
 <footer>
   © 2025 RentPort • Built in Zimbabwe 🇿🇼
 </footer>
+<script>
+  function sendMessage(event) {
+    event.preventDefault();
+    document.getElementById("successMsg").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
