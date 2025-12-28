@@ -113,20 +113,28 @@
 </div>
 
 <script>
-  let properties = [];
+ let properties = JSON.parse(localStorage.getItem("properties")) || [];
 
-  function addProperty(event) {
-    event.preventDefault();
+function addProperty() {
+  const title = document.getElementById("title").value;
+  const price = document.getElementById("price").value;
+  const location = document.getElementById("location").value;
+  const image = document.getElementById("image").value;
 
-    const title = document.getElementById("title").value;
-    const price = document.getElementById("price").value;
-    const description = document.getElementById("description").value;
+  const newProperty = {
+    id: Date.now(),
+    title,
+    price,
+    location,
+    image
+  };
 
-    properties.push({ title, price, description });
-    renderProperties();
+  properties.push(newProperty);
+  localStorage.setItem("properties", JSON.stringify(properties));
 
-    event.target.reset();
-  }
+  alert("Property added successfully!");
+}
+ 
 
   function renderProperties() {
     const list = document.getElementById("propertyList");
